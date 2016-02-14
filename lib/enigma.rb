@@ -17,9 +17,16 @@ class Enigma
     message.chars.each do |letter|
       indexed_characters << @alphabet.find_index(letter)
     end
-    indexed_characters.each do |character|
-      
+    encrypted_message = []
+    indexed_characters.map.with_index do |in_ch, i|
+      if i > 3
+        encrypted_message << (@complete_code[i % 4] + in_ch)
+      else
+        encrypted_message << (@complete_code[i] + in_ch)
+      end
     end
+
+    p @alphabet[encrypted_message[0]]
   end
 
   def decrypt
@@ -55,6 +62,6 @@ class Enigma
   end
 
   e = Enigma.new
-  my_message = "abc def"
+  my_message = "abc def ghi"
   output = e.encrypt(my_message, "12345", "021316")
 end
