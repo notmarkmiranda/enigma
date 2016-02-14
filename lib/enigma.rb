@@ -11,31 +11,54 @@ class Enigma
     format_the_key(key)
     format_the_offset(date)
     add_them_together
-
-    # convert the message
-    indexed_characters = []
-    message.chars.each do |letter|
-      indexed_characters << @alphabet.find_index(letter)
-    end
-    encrypted_message = []
-    indexed_characters.map.with_index do |in_ch, i|
-      if i > 3
-        encrypted_message << (@complete_code[i % 4] + in_ch)
-      else
-        encrypted_message << (@complete_code[i] + in_ch)
-      end
-    end
-    # STUCK HERE
-    p @alphabet[encrypted_message[0]]
+    convert_the_message_to_index(message)
+    encrypt_shift
+    convert_back_join
   end
 
-  def decrypt
+  def decrypt(message, key, date)
+    format_the_key(key)
+    format_the_offset(date)
+    add_them_together
+    convert_the_message_to_index(message)
+    decrypt_shift
+    convert_back_join
   end
 
   def crack
   end
 
 # helper methods
+  def convert_back_join
+    @final_message = []
+    @encrypted_message.map.with_index do |letter, i|
+      @final_message << (@alphabet[@encrypted_message[i] % @alphabet.size])
+    end
+    @final_message = @final_message.join
+  end
+
+  def encrypt_shift
+    @encrypted_message = []
+    @indexed_characters.map.with_index do |in_ch, i|
+      @encrypted_message << (@complete_code[i % @complete_code.size] + in_ch)
+    end
+  end
+  def decrypt_shift
+    @encrypted_message = []
+    @indexed_characters.map.with_index do |in_ch, i|
+      @encrypted_message << (@complete_code[i % @complete_code.size] - in_ch)
+    end
+    # decrypt shift doesn't work properly yet
+  end
+
+  def convert_the_message_to_index(message)
+    @message = message
+    @indexed_characters = []
+    @message.chars.each do |letter|
+      @indexed_characters << @alphabet.find_index(letter)
+    end
+  end
+
   def format_the_key(key)
     @key = key
     split_key = @key.chars
@@ -63,5 +86,6 @@ class Enigma
 
   e = Enigma.new
   my_message = "abc def ghi"
-  output = e.encrypt(my_message, "12345", "021316")
+  p output = e.encrypt(my_message, "12345", "021316")
+  p input = e.decrypt(output, "12345", "021316")
 end
