@@ -35,6 +35,7 @@ class Enigma
       @final_message << (@alphabet[@encrypted_message[i] % @alphabet.size])
     end
     @final_message = @final_message.join
+    puts "#{@final_message} was generated with key #{@key} and date #{@date}"
   end
 
   def encrypt_shift
@@ -105,6 +106,7 @@ class Enigma
   e = Enigma.new
   my_message = "abc def ghi"
   e.generate_key
-  p output = e.encrypt(my_message, "12345", "120681")
-  p input = e.decrypt(output, "12345", "120681")
+  output = e.encrypt(my_message)
+
+  # p input = e.decrypt(output, "12345", "120681")
 end
