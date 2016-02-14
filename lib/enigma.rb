@@ -34,21 +34,21 @@ class Enigma
     @encrypted_message.map.with_index do |letter, i|
       @final_message << (@alphabet[@encrypted_message[i] % @alphabet.size])
     end
-    @final_message = @final_message.join
+    p @final_message = @final_message.join
   end
 
   def encrypt_shift
     @encrypted_message = []
     @indexed_characters.map.with_index do |in_ch, i|
-      @encrypted_message << (@complete_code[i % @complete_code.size] + in_ch)
+      @encrypted_message << (@complete_code[(i % @complete_code.size)]+ in_ch)
     end
   end
   def decrypt_shift
     @encrypted_message = []
     @indexed_characters.map.with_index do |in_ch, i|
-      @encrypted_message << (@complete_code[i % @complete_code.size] - in_ch)
+      @encrypted_message << (in_ch - @complete_code[i % @complete_code.size])
     end
-    # decrypt shift doesn't work properly yet
+    @encrypted_message
   end
 
   def convert_the_message_to_index(message)
@@ -86,6 +86,6 @@ class Enigma
 
   e = Enigma.new
   my_message = "abc def ghi"
-  p output = e.encrypt(my_message, "12345", "021316")
-  p input = e.decrypt(output, "12345", "021316")
+  output = e.encrypt(my_message, "12345", "021316")
+  # input = e.decrypt(output, "12345", "021316")
 end
