@@ -25,7 +25,7 @@ class Enigma
         encrypted_message << (@complete_code[i] + in_ch)
       end
     end
-
+    # STUCK HERE
     p @alphabet[encrypted_message[0]]
   end
 
