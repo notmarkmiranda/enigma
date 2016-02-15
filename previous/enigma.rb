@@ -1,7 +1,7 @@
 require 'date'
 
 class Enigma
-  attr_reader :alphabet
+  attr_reader :alphabet, :message, :complete_code, :key, :final_offset, :date
 
   def initialize
     @alphabet = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 \  . ,)
@@ -35,7 +35,7 @@ class Enigma
       @final_message << (@alphabet[@encrypted_message[i] % @alphabet.size])
     end
     @final_message = @final_message.join
-    puts "#{@final_message} was generated with key #{@key} and date #{@date}"
+    # puts "#{@final_message} was generated with key #{@key} and date #{@date}"
   end
 
   def encrypt_shift
@@ -81,7 +81,7 @@ class Enigma
 
   def format_the_offset(date)
     @date = date
-    if @date == nil
+    if @date == nil || @date == Date.today
       @date = create_date
     end
     @date = @date.to_i
@@ -105,8 +105,10 @@ class Enigma
 
   e = Enigma.new
   my_message = "abc def ghi"
-  e.generate_key
-  output = e.encrypt(my_message)
+  # p output = e.encrypt(my_message)
+  # p output = e.encrypt(my_message, "12345")
+  # p output = e.encrypt(my_message, "12345", Date.today)
+  output = e.encrypt(my_message, "12345", "120681")
 
-  # p input = e.decrypt(output, "12345", "120681")
+  # input = e.decrypt(output, "12345", Date.today)
 end

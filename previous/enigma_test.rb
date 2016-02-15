@@ -18,9 +18,17 @@ class Enigma_test < Minitest::Test
 
   def test_can_calculate_final_key
     e = Enigma.new
-    output = e.encrypt("message", "12345", "021316")
-    @complete_code
+    e.encrypt("message", "12345", "021316")
+    assert_equal [13, 31, 39, 51], e.add_them_together
+  end
 
+  def test_it_can_generate_a_random_five_digit_number
+    e = Enigma.new
+    e.encrypt("message")
+    assert_includes 10000..99999, e.key.to_i
+  end
+
+  def test_it_can_generate_todays_date
   end
 
 end
