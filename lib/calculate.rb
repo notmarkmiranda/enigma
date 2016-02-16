@@ -43,7 +43,6 @@ class Calculate
 
   def self.message_to_index(message)
 
-
   end
 
 end
