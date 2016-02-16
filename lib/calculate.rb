@@ -42,7 +42,8 @@ class Calculate
   end
 
   def self.message_to_index(message)
-
+    split_message = message.chars
+    
   end
 
 end
