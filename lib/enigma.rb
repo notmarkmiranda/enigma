@@ -1,4 +1,5 @@
 require_relative 'calculate'
+require_relative 'key_generator'
 
 require 'pry'
 class Enigma
@@ -10,10 +11,10 @@ class Enigma
 
   def encrypt(message, key=nil, date=nil, mode = "forward")
     @message = message
-    @key = key
-    @date = date
-    Calculate.calc(key, date)
-    Calculate.message_to_index(message)
+    @key = key || KeyGenerator.create_key
+    @date = date || Date.today
+    # Calculate.calc(key, date)
+    # Calculate.message_to_index(message)
   end
 
   e = Enigma.new
