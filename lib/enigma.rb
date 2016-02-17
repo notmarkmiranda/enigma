@@ -16,8 +16,9 @@ class Enigma
     # Calculate.calc(key, date)
     # Calculate.message_to_index(message)
   end
+end
 
+if __FILE__ == $0
   e = Enigma.new
   e.encrypt("hello world", "12345", "021616")
-
 end
