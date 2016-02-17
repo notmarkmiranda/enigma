@@ -37,7 +37,7 @@ class EnigmaTest < Minitest::Test
   def test_can_create_instance_offset_calculator
     e = Enigma.new
     date = Date.new(2016, 02, 16)
-    e.encrypt("Hello World", "12345", date)
+    e.encrypt("Hello world", "12345", date)
     assert_equal date, e.date
     assert_equal "12345", e.key
   end
@@ -46,5 +46,19 @@ class EnigmaTest < Minitest::Test
     e = Enigma.new
     e.encrypt("hello")
     assert_equal [7, 4, 11, 11, 14], e.message_index
+  end
+
+  def test_rotate_and_return_spins_the_array_and_returns_encrypted_message
+    e = Enigma.new
+    date = Date.new(2016, 02, 16)
+    e.encrypt("hello", "12345", date)
+    assert_equal "z7lx6", e.encrypted_message
+  end
+
+  def test_decrypt_actually_works
+    e = Enigma.new
+    date = Date.new(2016, 02, 16)
+    e.decrypt("z7lx6", "12345", date)
+    assert_equal "hello", e.encrypted_message
   end
 end

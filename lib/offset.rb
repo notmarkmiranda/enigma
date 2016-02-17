@@ -1,9 +1,10 @@
 require_relative 'key_generator'
-require_relative 'enigma'
 require 'date'
 require 'pry'
+
 class Offset
-  attr_reader :key, :date, :final_key, :final_offset, :code
+  attr_reader :key, :date, :final_key, :final_offset
+  attr_accessor :code
 
   def initialize(key = nil, date = Date.today)
     @key = key || KeyGenerator.create_key
@@ -40,6 +41,7 @@ class Offset
     @code = [@final_key, @final_offset]
     @code = @code.transpose.map { |value| value.reduce(:+)}
   end
+
 
 
 end

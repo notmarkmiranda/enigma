@@ -12,8 +12,8 @@ class OffsetTest < Minitest::Test
   def test_can_receive_key_and_date
     e = Enigma.new
     date = Date.new(2016, 02, 16)
-    e.encrypt("Hello world", "12345", date)
-    assert_equal "Hello world", e.message
+    e.encrypt("hello world", "12345", date)
+    assert_equal "hello world", e.message
     assert_equal "12345", e.key
     assert_equal date, e.date
   end
@@ -48,7 +48,6 @@ class OffsetTest < Minitest::Test
 
   def test_can_add_key_offset_together
     e = Offset.new("12345", "160216")
-    binding.pry
     assert_equal [18, 29, 39, 51], e.code
   end
 
