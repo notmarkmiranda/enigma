@@ -41,4 +41,10 @@ class EnigmaTest < Minitest::Test
     assert_equal date, e.date
     assert_equal "12345", e.key
   end
+
+  def test_can_convert_message_to_index
+    e = Enigma.new
+    e.encrypt("hello")
+    assert_equal [7, 4, 11, 11, 14], e.message_index
+  end
 end

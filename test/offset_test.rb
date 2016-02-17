@@ -48,6 +48,7 @@ class OffsetTest < Minitest::Test
 
   def test_can_add_key_offset_together
     e = Offset.new("12345", "160216")
+    binding.pry
     assert_equal [18, 29, 39, 51], e.code
   end
 

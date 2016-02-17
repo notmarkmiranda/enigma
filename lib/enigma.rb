@@ -1,9 +1,9 @@
-# require_relative 'calculate'
 require_relative 'key_generator'
 require_relative 'offset'
 require 'date'
 
 require 'pry'
+
 class Enigma
   attr_reader :message, :key, :date
 
@@ -15,9 +15,15 @@ class Enigma
     @message = message
     @key = key || KeyGenerator.create_key
     @date = date || Date.today
-    Offset.new(key, date)
+    shift = Offset.new(key, date)
+    message_to_index(message)
     # Calculate.calc(key, date)
     # Calculate.message_to_index(message)
+  end
+
+  def message_to_index(message)
+    message = message.chars
+
   end
 end
 
