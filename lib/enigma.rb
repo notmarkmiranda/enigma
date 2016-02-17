@@ -5,7 +5,7 @@ require 'date'
 require 'pry'
 
 class Enigma
-  attr_reader :message, :key, :date
+  attr_reader :message, :key, :date, :message_index
 
   def initialize
     @character_map = [*("a".."z"), *("0".."9"), " ", ".", ","]
@@ -15,7 +15,7 @@ class Enigma
     @message = message
     @key = key || KeyGenerator.create_key
     @date = date || Date.today
-    shift = Offset.new(key, date)
+    shift = Offset.new(@key, @date)
     message_to_index(message)
     # Calculate.calc(key, date)
     # Calculate.message_to_index(message)
@@ -23,12 +23,14 @@ class Enigma
 
   def message_to_index(message)
     message = message.chars
-
+    @message_index = message.map do |letter|
+      @character_map.index(letter)
+    end
   end
 end
 
 if __FILE__ == $0
   e = Enigma.new
-  e.encrypt("hello world", "12345", "021616")
-  p @final_key
+  e.encrypt("hello world", "12345")
+
 end
