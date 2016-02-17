@@ -1,5 +1,7 @@
 require 'minitest/pride'
 require 'minitest/autorun'
+require 'date'
+require 'pry'
 require './lib/enigma'
 
 class EnigmaTest < Minitest::Test
@@ -17,6 +19,12 @@ class EnigmaTest < Minitest::Test
     assert_equal Date, e.date.class
   end
 
+  def test_can_a_key_if_given
+    e = Enigma.new
+    e.encrypt("message", "12345")
+    assert_equal "12345", e.key
+  end
+
   def test_can_receive_key_and_date
     e = Enigma.new
     date = Date.new(2016, 01, 01)
@@ -24,5 +32,13 @@ class EnigmaTest < Minitest::Test
     assert_equal "12345", e.key
     assert_equal date, e.date
     assert_equal "message", e.message
+  end
+
+  def test_can_create_instance_offset_calculator
+    e = Enigma.new
+    date = Date.new(2016, 02, 16)
+    e.encrypt("Hello World", "12345", date)
+    assert_equal date, e.date
+    assert_equal "12345", e.key
   end
 end
