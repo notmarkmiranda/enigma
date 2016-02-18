@@ -1,8 +1,6 @@
-require 'minitest/pride'
-require 'minitest/autorun'
-require 'date'
-require 'pry'
+require './test/test_helper'
 require './lib/enigma'
+require 'date'
 
 class EnigmaTest < Minitest::Test
   def test_class_exists
@@ -76,9 +74,9 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_crack_can_revert_back_to_original_message
-_   e = Enigma.new
+    e = Enigma.new
     output = e.encrypt("hello, world ..end..")
-    assert_equal e.crack(output, Date.today), "hello, world ..end.."
+    assert_equal e.crack(output, Date.today)[0], "hello, world ..end.."
 
   end
 

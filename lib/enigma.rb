@@ -5,7 +5,7 @@ require 'date'
 require 'pry'
 
 class Enigma
-  attr_reader :message, :key, :date, :message_index, :shift, :encrypted_message, :temp_message
+  attr_reader :message, :key, :date, :message_index, :shift, :encrypted_message, :temp_array
 
   def initialize
     @character_map = [*("a".."z"), *("0".."9"), " ", ".", ","]
@@ -23,14 +23,14 @@ class Enigma
     @encrypted_message
   end
 
-  def crack(message, date=nil)
+  def crack(message=nil, date=nil)
     @message = message
     @date = date || Date.today
     offset = Offset.new(nil, @date)
     0.upto(99999) do |key|
       temp_key = key.to_s.rjust(5, "0")
       temp_message = decrypt(@message, temp_key, @date)
-      return temp_message if temp_message[-7..-1] == "..end.."
+      return temp_array = [temp_message, temp_key] if temp_message[-7..-1] == "..end.."
     end
   end
 
@@ -68,8 +68,8 @@ end
 
 if __FILE__ == $0
   e = Enigma.new
-  puts e.encrypt("hello ..end..", "12345", Date.new(2016, 02, 16))
-  puts e.decrypt(" emqpmo3vi", "12345", Date.new(2016, 02, 15))
+  # puts e.encrypt("hello ..end..", "12345", Date.new(2016, 02, 16))
+  # puts e.decrypt(" emqpmo3vi", "12345", Date.new(2016, 02, 15))
   puts e.crack("wogpbwi2hs4jcehoc.")
 
 end

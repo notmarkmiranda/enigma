@@ -1,6 +1,4 @@
-require 'minitest/pride'
-require 'minitest/autorun'
-require './lib/offset'
+require './test/test_helper'
 require './lib/enigma'
 
 class OffsetTest < Minitest::Test
