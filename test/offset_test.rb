@@ -18,7 +18,7 @@ class OffsetTest < Minitest::Test
     assert_equal date, e.date
   end
 
-  def test_creates_random_number_and_todays_dateif_none_passed_in
+  def test_creates_random_number_and_todays_date_if_none_passed_in
     e = Enigma.new
     e.encrypt("Hello World")
     assert_includes 10000..99999, e.key.to_i
@@ -50,6 +50,13 @@ class OffsetTest < Minitest::Test
     e = Offset.new("12345", "160216")
     assert_equal [18, 29, 39, 51], e.code
   end
+
+  def test_fails_on_invalid_key_length_and_class
+    assert_raises { Offset.new("123456") }
+    assert_raises { Offset.new("1234")}
+    assert_raises { Offset.new("[1,2,3,4,5]")}
+  end
+
 
 
 end

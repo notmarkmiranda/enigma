@@ -19,7 +19,7 @@ class Enigma
     @shift = Offset.new(@key, @date)
     message_to_index(@message)
     rotate_and_return(mode)
-    puts "'#{encrypted_message}' was encrypted with the key #{key} and date #{date}"
+    puts "\"#{encrypted_message}\" was encrypted with the key #{@key} and date #{@date}"
   end
 
   def decrypt(message, key=nil, date=nil, mode = "backward")
@@ -30,7 +30,17 @@ class Enigma
     @shift = Offset.new(@key, @date)
     message_to_index(@message)
     rotate_and_return(mode)
-    puts "'#{encrypted_message}' was encrypted with the key #{key} and date #{date}"
+    puts "\"#{encrypted_message}\" was decrypted with the key #{key} and date #{@date}"
+  end
+
+  def crack(message, date=nil)
+    @message = message
+    @date = date || Date.today
+
+    # formula to determine first period index
+    # (string length - 7 (length of ..end..) % 4 = index value for code)
+    # put this into a variable, iterate 4 times increasing and modulo 4 and assign the array
+    
   end
 
   def message_to_index(message)
@@ -57,7 +67,7 @@ end
 
 if __FILE__ == $0
   e = Enigma.new
-  e.encrypt("hello", "12345", Date.new(2016, 02, 16))
+  e.encrypt("hello ..end..", "12345", Date.new(2016, 02, 16))
   e.decrypt(" emqpmo3vi", "12345", Date.new(2016, 02, 15))
 
 end

@@ -61,4 +61,7 @@ class EnigmaTest < Minitest::Test
     e.decrypt("z7lx6", "12345", date)
     assert_equal "hello", e.encrypted_message
   end
+
+  def test_crack
+  end
 end
