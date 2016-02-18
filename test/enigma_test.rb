@@ -75,10 +75,11 @@ class EnigmaTest < Minitest::Test
     assert_equal e.date, Date.today
   end
 
-  def test_crack_can_take_date_dot_today_as_an_argument
-    e = Enigma.new
-    e.crack("z7lx60.kwddkq", Date.today)
-    assert_equal e.date, Date.today
+  def test_crack_can_revert_back_to_original_message
+_   e = Enigma.new
+    output = e.encrypt("hello, world ..end..")
+    assert_equal e.crack(output, Date.today), "hello, world ..end.."
+
   end
 
 end
