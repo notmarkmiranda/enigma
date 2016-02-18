@@ -48,13 +48,14 @@ class OffsetTest < Minitest::Test
 
   def test_can_add_key_offset_together
     e = Offset.new("12345", "160216")
+    e.add_them_together
     assert_equal [18, 29, 39, 51], e.code
   end
 
   def test_fails_on_invalid_key_length_and_class
     assert_raises { Offset.new("123456") }
     assert_raises { Offset.new("1234")}
-    assert_raises { Offset.new("[1,2,3,4,5]")}
+    assert_raises { Offset.new([1,2,3,4,5])}
   end
 
 

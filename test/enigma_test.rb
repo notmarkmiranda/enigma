@@ -62,6 +62,23 @@ class EnigmaTest < Minitest::Test
     assert_equal "hello", e.encrypted_message
   end
 
-  def test_crack
+  def test_crack_can_receive_message_date
+    e = Enigma.new
+    e.crack("z7lx60.kwddkq", "160216")
+    assert_equal "z7lx60.kwddkq", e.message
+    assert_equal "160216", e.date
   end
+
+  def test_crack_can_format_date_without_one_being_passed_in
+    e = Enigma.new
+    e.crack("z7lx60.kwddkq")
+    assert_equal e.date, Date.today
+  end
+
+  def test_crack_can_take_date_dot_today_as_an_argument
+    e = Enigma.new
+    e.crack("z7lx60.kwddkq", Date.today)
+    assert_equal e.date, Date.today
+  end
+
 end

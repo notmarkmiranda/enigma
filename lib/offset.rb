@@ -8,10 +8,9 @@ class Offset
   def initialize(key = nil, date = nil)
     @key = key || KeyGenerator.create_key
     @date = date || Date.today
-    raise ArgumentError if @key.size != 5 && @key.class != String
+    raise Error if @key.size != 5 || @key.class != String
     format_key(@key)
     format_offset(@date)
-    add_them_together
   end
 
   def format_key(key)
