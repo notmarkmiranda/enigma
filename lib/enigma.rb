@@ -63,10 +63,9 @@ class Enigma
 
 end
 
-if __FILE__ == $0
-  e = Enigma.new
-  puts e.encrypt("hello ..end..", "12345", Date.new(2016, 02, 16))
-  puts e.decrypt(" emqpmo3vi", "12345", Date.new(2016, 02, 15))
-  puts e.crack("wogpbwi2hs4jcehoc.")
-
-end
+# if __FILE__ == $0
+#   e = Enigma.new
+#   puts e.encrypt("hello ..end..", "12345", Date.new(2016, 02, 16))
+#   puts e.decrypt(" emqpmo3vi", "12345", Date.new(2016, 02, 15))
+#   puts e.crack("wogpbwi2hs4jcehoc.")
+# end
