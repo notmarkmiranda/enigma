@@ -1,3 +1,5 @@
 language: ruby
-rvm:
- - "2.3.0"
+before install:
+- rvm use 2.3.0
+- gem install bundler
+- bundle install
