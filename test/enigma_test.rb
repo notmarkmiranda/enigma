@@ -1,6 +1,5 @@
 require './test/test_helper'
 require './lib/enigma'
-require 'date'
 
 class EnigmaTest < Minitest::Test
   def test_class_exists

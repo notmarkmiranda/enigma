@@ -12,13 +12,11 @@ class Enigma
   end
 
   def encrypt(message, key=nil, date=nil, mode = "forward")
-    # refactor?
     magic_crypt_part(message, key, date, mode)
     @encrypted_message
   end
 
   def decrypt(message, key=nil, date=nil, mode = "backward")
-    # refactor?
     magic_crypt_part(message, key, date, mode)
     @encrypted_message
   end
@@ -51,12 +49,11 @@ class Enigma
   end
 
   def rotate_and_return(mode)
-    # refactor?
     e_message = []
     @message_index.each_with_index do |message, index|
       if mode == "forward"
         rotated = @character_map.rotate(@shift.code[index % 4])
-      elsif mode == "backward"
+      elsif mode =="backward"
         rotated = @character_map.rotate(-@shift.code[index % 4])
       end
       e_message <<  rotated[message]
@@ -68,8 +65,8 @@ end
 
 if __FILE__ == $0
   e = Enigma.new
-  # puts e.encrypt("hello ..end..", "12345", Date.new(2016, 02, 16))
-  # puts e.decrypt(" emqpmo3vi", "12345", Date.new(2016, 02, 15))
+  puts e.encrypt("hello ..end..", "12345", Date.new(2016, 02, 16))
+  puts e.decrypt(" emqpmo3vi", "12345", Date.new(2016, 02, 15))
   puts e.crack("wogpbwi2hs4jcehoc.")
 
 end
