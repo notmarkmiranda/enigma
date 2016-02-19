@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-18T21:44:35-07:00">2016-02-18T21:44:35-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-19T07:53:56-07:00">2016-02-19T07:53:56-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         107109.86
+         189958.77
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>41</td>
         <td>41</td>
         <td>0</td>
-        <td>135382.0</td>
+        <td>242796.7</td>
       </tr>
       
       <tr>
@@ -77,7 +77,7 @@
         <td>23</td>
         <td>23</td>
         <td>0</td>
-        <td>70682.2</td>
+        <td>120546.3</td>
       </tr>
       
     </tbody>
@@ -224,14 +224,14 @@
           <code class="ruby">  def decrypt(message, key=nil, date=nil, mode = &quot;backward&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="65018" data-linenumber="20">
-          <span class="hits">65018</span>
+        <li class="covered" data-hits="110893" data-linenumber="20">
+          <span class="hits">110893</span>
           
           <code class="ruby">    magic_crypt_part(message, key, date, mode)</code>
         </li>
       
-        <li class="covered" data-hits="65018" data-linenumber="21">
-          <span class="hits">65018</span>
+        <li class="covered" data-hits="110893" data-linenumber="21">
+          <span class="hits">110893</span>
           
           <code class="ruby">    @encrypted_message</code>
         </li>
@@ -278,20 +278,20 @@
           <code class="ruby">    0.upto(99999) do |key|</code>
         </li>
       
-        <li class="covered" data-hits="65017" data-linenumber="29">
-          <span class="hits">65017</span>
+        <li class="covered" data-hits="110892" data-linenumber="29">
+          <span class="hits">110892</span>
           
           <code class="ruby">      temp_key = key.to_s.rjust(5, &quot;0&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="65017" data-linenumber="30">
-          <span class="hits">65017</span>
+        <li class="covered" data-hits="110892" data-linenumber="30">
+          <span class="hits">110892</span>
           
           <code class="ruby">      temp_message = decrypt(@message, temp_key, @date)</code>
         </li>
       
-        <li class="covered" data-hits="65017" data-linenumber="31">
-          <span class="hits">65017</span>
+        <li class="covered" data-hits="110892" data-linenumber="31">
+          <span class="hits">110892</span>
           
           <code class="ruby">      return temp_array = [temp_message, temp_key] if temp_message[-7..-1] == &quot;..end..&quot;</code>
         </li>
@@ -320,44 +320,44 @@
           <code class="ruby">  def magic_crypt_part(message, key=nil, date=nil, mode)</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="36">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="36">
+          <span class="hits">110900</span>
           
           <code class="ruby">    @message = message.downcase</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="37">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="37">
+          <span class="hits">110900</span>
           
           <code class="ruby">    @key = key || KeyGenerator.create_key</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="38">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="38">
+          <span class="hits">110900</span>
           
           <code class="ruby">    @date = date || Date.today</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="39">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="39">
+          <span class="hits">110900</span>
           
           <code class="ruby">    @shift = Offset.new(@key, @date)</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="40">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="40">
+          <span class="hits">110900</span>
           
           <code class="ruby">    @shift.add_them_together</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="41">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="41">
+          <span class="hits">110900</span>
           
           <code class="ruby">    message_to_index(@message)</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="42">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="42">
+          <span class="hits">110900</span>
           
           <code class="ruby">    rotate_and_return(mode)</code>
         </li>
@@ -380,14 +380,14 @@
           <code class="ruby">  def message_to_index(message)</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="46">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="46">
+          <span class="hits">110900</span>
           
           <code class="ruby">    @message_index = message.chars.map do |letter|</code>
         </li>
       
-        <li class="covered" data-hits="1127563" data-linenumber="47">
-          <span class="hits">1127563</span>
+        <li class="covered" data-hits="2045063" data-linenumber="47">
+          <span class="hits">2045063</span>
           
           <code class="ruby">      @character_map.index(letter)</code>
         </li>
@@ -416,20 +416,20 @@
           <code class="ruby">  def rotate_and_return(mode)</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="52">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="52">
+          <span class="hits">110900</span>
           
           <code class="ruby">    e_message = []</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="53">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="53">
+          <span class="hits">110900</span>
           
           <code class="ruby">    @message_index.each_with_index do |message, index|</code>
         </li>
       
-        <li class="covered" data-hits="1127563" data-linenumber="54">
-          <span class="hits">1127563</span>
+        <li class="covered" data-hits="2045063" data-linenumber="54">
+          <span class="hits">2045063</span>
           
           <code class="ruby">      if mode == &quot;forward&quot;</code>
         </li>
@@ -446,8 +446,8 @@
           <code class="ruby">      elsif mode ==&quot;backward&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1127501" data-linenumber="57">
-          <span class="hits">1127501</span>
+        <li class="covered" data-hits="2045001" data-linenumber="57">
+          <span class="hits">2045001</span>
           
           <code class="ruby">        rotated = @character_map.rotate(-@shift.code[index % 4])</code>
         </li>
@@ -458,8 +458,8 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1127563" data-linenumber="59">
-          <span class="hits">1127563</span>
+        <li class="covered" data-hits="2045063" data-linenumber="59">
+          <span class="hits">2045063</span>
           
           <code class="ruby">      e_message &lt;&lt;  rotated[message]</code>
         </li>
@@ -470,8 +470,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="61">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="61">
+          <span class="hits">110900</span>
           
           <code class="ruby">    @encrypted_message = e_message.join</code>
         </li>
@@ -650,32 +650,32 @@
           <code class="ruby">  def initialize(key = nil, date = nil)</code>
         </li>
       
-        <li class="covered" data-hits="65028" data-linenumber="9">
-          <span class="hits">65028</span>
+        <li class="covered" data-hits="110903" data-linenumber="9">
+          <span class="hits">110903</span>
           
           <code class="ruby">    @key = key || KeyGenerator.create_key</code>
         </li>
       
-        <li class="covered" data-hits="65028" data-linenumber="10">
-          <span class="hits">65028</span>
+        <li class="covered" data-hits="110903" data-linenumber="10">
+          <span class="hits">110903</span>
           
           <code class="ruby">    @date = date || Date.today</code>
         </li>
       
-        <li class="covered" data-hits="65028" data-linenumber="11">
-          <span class="hits">65028</span>
+        <li class="covered" data-hits="110903" data-linenumber="11">
+          <span class="hits">110903</span>
           
           <code class="ruby">    raise Error if @key.size != 5 || @key.class != String</code>
         </li>
       
-        <li class="covered" data-hits="65028" data-linenumber="12">
-          <span class="hits">65028</span>
+        <li class="covered" data-hits="110903" data-linenumber="12">
+          <span class="hits">110903</span>
           
           <code class="ruby">    format_key(@key)</code>
         </li>
       
-        <li class="covered" data-hits="65028" data-linenumber="13">
-          <span class="hits">65028</span>
+        <li class="covered" data-hits="110903" data-linenumber="13">
+          <span class="hits">110903</span>
           
           <code class="ruby">    format_offset(@date)</code>
         </li>
@@ -698,14 +698,14 @@
           <code class="ruby">  def format_key(key)</code>
         </li>
       
-        <li class="covered" data-hits="65028" data-linenumber="17">
-          <span class="hits">65028</span>
+        <li class="covered" data-hits="110903" data-linenumber="17">
+          <span class="hits">110903</span>
           
           <code class="ruby">    split_key = key.to_s.chars</code>
         </li>
       
-        <li class="covered" data-hits="65028" data-linenumber="18">
-          <span class="hits">65028</span>
+        <li class="covered" data-hits="110903" data-linenumber="18">
+          <span class="hits">110903</span>
           
           <code class="ruby">    @final_key = []</code>
         </li>
@@ -716,14 +716,14 @@
           <code class="ruby">    # permutations?</code>
         </li>
       
-        <li class="covered" data-hits="65028" data-linenumber="20">
-          <span class="hits">65028</span>
+        <li class="covered" data-hits="110903" data-linenumber="20">
+          <span class="hits">110903</span>
           
           <code class="ruby">    (split_key.size - 1).times do |num|</code>
         </li>
       
-        <li class="covered" data-hits="260112" data-linenumber="21">
-          <span class="hits">260112</span>
+        <li class="covered" data-hits="443612" data-linenumber="21">
+          <span class="hits">443612</span>
           
           <code class="ruby">      @final_key &lt;&lt; split_key[num] + split_key[num+1]</code>
         </li>
@@ -734,8 +734,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="65028" data-linenumber="23">
-          <span class="hits">65028</span>
+        <li class="covered" data-hits="110903" data-linenumber="23">
+          <span class="hits">110903</span>
           
           <code class="ruby">    @final_key.map!(&amp;:to_i)</code>
         </li>
@@ -758,14 +758,14 @@
           <code class="ruby">  def format_offset(offset)</code>
         </li>
       
-        <li class="covered" data-hits="65028" data-linenumber="27">
-          <span class="hits">65028</span>
+        <li class="covered" data-hits="110903" data-linenumber="27">
+          <span class="hits">110903</span>
           
           <code class="ruby">    offset = offset.strftime(&quot;%d%m%y&quot;) if offset.class == Date</code>
         </li>
       
-        <li class="covered" data-hits="325140" data-linenumber="28">
-          <span class="hits">325140</span>
+        <li class="covered" data-hits="554515" data-linenumber="28">
+          <span class="hits">554515</span>
           
           <code class="ruby">    @final_offset = (offset.to_i ** 2).to_s[-4..-1].chars.map { |num| num.to_i }</code>
         </li>
@@ -788,14 +788,14 @@
           <code class="ruby">  def add_them_together</code>
         </li>
       
-        <li class="covered" data-hits="65025" data-linenumber="32">
-          <span class="hits">65025</span>
+        <li class="covered" data-hits="110900" data-linenumber="32">
+          <span class="hits">110900</span>
           
           <code class="ruby">    @code = [@final_key, @final_offset]</code>
         </li>
       
-        <li class="covered" data-hits="325125" data-linenumber="33">
-          <span class="hits">325125</span>
+        <li class="covered" data-hits="554500" data-linenumber="33">
+          <span class="hits">554500</span>
           
           <code class="ruby">    @code = @code.transpose.map { |value| value.reduce(:+)}</code>
         </li>
